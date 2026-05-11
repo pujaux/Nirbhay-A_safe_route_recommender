@@ -1,0 +1,32 @@
+{
+  "delhi": [
+    { "id": "cp", "name": "Connaught Place", "lat": 28.6315, "lng": 77.2167, "safetyBase": 88, "lighting": 95, "cctv": 92, "police": 90 },
+    { "id": "kb", "name": "Karol Bagh", "lat": 28.6517, "lng": 77.1907, "safetyBase": 74, "lighting": 76, "cctv": 70, "police": 72 },
+    { "id": "ln", "name": "Lajpat Nagar", "lat": 28.5677, "lng": 77.2433, "safetyBase": 78, "lighting": 78, "cctv": 72, "police": 75 },
+    { "id": "saket", "name": "Saket", "lat": 28.5245, "lng": 77.2066, "safetyBase": 85, "lighting": 87, "cctv": 82, "police": 80 },
+    { "id": "dwarka", "name": "Dwarka", "lat": 28.5921, "lng": 77.0460, "safetyBase": 80, "lighting": 83, "cctv": 78, "police": 76 },
+    { "id": "rohini", "name": "Rohini", "lat": 28.7041, "lng": 77.1025, "safetyBase": 72, "lighting": 70, "cctv": 65, "police": 68 },
+    { "id": "shahdara", "name": "Shahdara", "lat": 28.6692, "lng": 77.2921, "safetyBase": 62, "lighting": 62, "cctv": 58, "police": 60 },
+    { "id": "np", "name": "Nehru Place", "lat": 28.5491, "lng": 77.2518, "safetyBase": 76, "lighting": 75, "cctv": 72, "police": 70 },
+    { "id": "rg", "name": "Rajouri Garden", "lat": 28.6462, "lng": 77.1192, "safetyBase": 79, "lighting": 80, "cctv": 75, "police": 74 },
+    { "id": "gtb", "name": "GTB Nagar", "lat": 28.7000, "lng": 77.2070, "safetyBase": 68, "lighting": 68, "cctv": 62, "police": 65 },
+    { "id": "mayur", "name": "Mayur Vihar", "lat": 28.6096, "lng": 77.2952, "safetyBase": 75, "lighting": 75, "cctv": 70, "police": 72 },
+    { "id": "vasant", "name": "Vasant Kunj", "lat": 28.5205, "lng": 77.1577, "safetyBase": 83, "lighting": 85, "cctv": 80, "police": 78 },
+    { "id": "pitampura", "name": "Pitampura", "lat": 28.7005, "lng": 77.1312, "safetyBase": 76, "lighting": 76, "cctv": 70, "police": 72 },
+    { "id": "janakpuri", "name": "Janakpuri", "lat": 28.6219, "lng": 77.0878, "safetyBase": 78, "lighting": 78, "cctv": 72, "police": 74 },
+    { "id": "isbt", "name": "ISBT Kashmere Gate", "lat": 28.6676, "lng": 77.2282, "safetyBase": 65, "lighting": 70, "cctv": 75, "police": 80 },
+    { "id": "airport", "name": "IGI Airport", "lat": 28.5562, "lng": 77.1000, "safetyBase": 95, "lighting": 98, "cctv": 98, "police": 95 }
+  ],
+  "noida": [
+    { "id": "s18", "name": "Sector 18 Noida", "lat": 28.5700, "lng": 77.3219, "safetyBase": 82, "lighting": 85, "cctv": 80, "police": 78 },
+    { "id": "s62", "name": "Sector 62 Noida", "lat": 28.6271, "lng": 77.3694, "safetyBase": 76, "lighting": 74, "cctv": 70, "police": 68 },
+    { "id": "s15", "name": "Sector 15 Noida", "lat": 28.5845, "lng": 77.3152, "safetyBase": 75, "lighting": 75, "cctv": 70, "police": 70 },
+    { "id": "s137", "name": "Sector 137 Noida", "lat": 28.5033, "lng": 77.3977, "safetyBase": 70, "lighting": 68, "cctv": 65, "police": 62 },
+    { "id": "gn", "name": "Greater Noida", "lat": 28.4744, "lng": 77.5040, "safetyBase": 72, "lighting": 70, "cctv": 65, "police": 65 },
+    { "id": "exp", "name": "Noida Expressway", "lat": 28.5355, "lng": 77.3910, "safetyBase": 68, "lighting": 65, "cctv": 60, "police": 58 },
+    { "id": "s50", "name": "Sector 50 Noida", "lat": 28.6138, "lng": 77.3648, "safetyBase": 80, "lighting": 80, "cctv": 76, "police": 74 },
+    { "id": "s44", "name": "Sector 44 Noida", "lat": 28.5610, "lng": 77.3500, "safetyBase": 76, "lighting": 75, "cctv": 72, "police": 70 },
+    { "id": "s63", "name": "Sector 63 Noida", "lat": 28.6200, "lng": 77.3800, "safetyBase": 74, "lighting": 72, "cctv": 68, "police": 65 },
+    { "id": "citycentre", "name": "Noida City Centre", "lat": 28.5741, "lng": 77.3289, "safetyBase": 84, "lighting": 86, "cctv": 85, "police": 80 }
+  ]
+}

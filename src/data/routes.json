@@ -1,0 +1,131 @@
+{
+  "routes": [
+    {
+      "id": "r1",
+      "name": "Ring Road → DND Flyway",
+      "shortName": "Safest route",
+      "type": "road",
+      "via": ["Ring Road (NH48)", "Ashram Chowk", "DND Flyway", "Sector 18 Noida"],
+      "distanceKm": 18.2,
+      "durationMins": { "day": 30, "evening": 38, "night": 28 },
+      "safety": {
+        "lighting": 90,
+        "cctv": 88,
+        "police": 82,
+        "crimeIndex": 85,
+        "notes": [
+          "DND Flyway is fully lit 24x7 with sodium vapour lamps",
+          "CCTV cameras every 200m on DND",
+          "Police PCR van stationed at DND toll both ends",
+          "Ring Road well-patrolled during all hours",
+          "Ashram flyover well-lit, avoid the underpass late night"
+        ]
+      },
+      "hotspots": [],
+      "safezones": ["DND Toll Plaza", "Ashram Metro Station", "Noida Sector 18 Metro"],
+      "recommended": { "day": true, "evening": true, "night": true, "soloFemale": true }
+    },
+    {
+      "id": "r2",
+      "name": "NH24 → Akshardham",
+      "shortName": "Fastest route",
+      "type": "road",
+      "via": ["NH24", "Ghazipur", "Akshardham", "Mayur Vihar", "Sector 62 Noida"],
+      "distanceKm": 17.1,
+      "durationMins": { "day": 22, "evening": 35, "night": 25 },
+      "safety": {
+        "lighting": 68,
+        "cctv": 62,
+        "police": 58,
+        "crimeIndex": 70,
+        "notes": [
+          "Ghazipur stretch poorly lit after 10 PM",
+          "NH24 service road isolated at night — stay on main road",
+          "Akshardham area has CCTV but reduced police after midnight",
+          "High traffic during day makes it safer",
+          "Avoid Ghazipur underpass at night"
+        ]
+      },
+      "hotspots": ["Ghazipur Underpass", "NH24 Service Road"],
+      "safezones": ["Akshardham Metro Station", "Mayur Vihar Metro"],
+      "recommended": { "day": true, "evening": false, "night": false, "soloFemale": false }
+    },
+    {
+      "id": "r3",
+      "name": "Blue Line Metro",
+      "shortName": "Metro + walk",
+      "type": "metro",
+      "via": ["Nearest Metro Station", "Blue Line", "Noida City Centre / Sector 18 Metro"],
+      "distanceKm": null,
+      "durationMins": { "day": 38, "evening": 40, "night": null },
+      "safety": {
+        "lighting": 95,
+        "cctv": 97,
+        "police": 90,
+        "crimeIndex": 92,
+        "notes": [
+          "Metro stations fully monitored with CCTV 24x7",
+          "CISF security at every Delhi Metro station",
+          "Women-only coaches available on all trains",
+          "Metro runs until 11 PM (last train varies by station)",
+          "Last-mile walk must be planned — use lit roads only",
+          "Avoid after 11 PM as service ends"
+        ]
+      },
+      "hotspots": [],
+      "safezones": ["All Metro Stations", "DMRC Security Posts"],
+      "recommended": { "day": true, "evening": true, "night": false, "soloFemale": true },
+      "metroTiming": { "firstTrain": "06:00", "lastTrain": "23:00" }
+    },
+    {
+      "id": "r4",
+      "name": "NH48 → Dhaula Kuan → Noida Expressway",
+      "shortName": "Expressway route",
+      "type": "road",
+      "via": ["NH48", "Dhaula Kuan", "Delhi-Noida Direct (DND)", "Noida Expressway"],
+      "distanceKm": 22.4,
+      "durationMins": { "day": 40, "evening": 55, "night": 35 },
+      "safety": {
+        "lighting": 72,
+        "cctv": 65,
+        "police": 60,
+        "crimeIndex": 68,
+        "notes": [
+          "Expressway service road very isolated after midnight",
+          "Main expressway has tolls and cameras — safer than service road",
+          "Dhaula Kuan well-lit and patrolled",
+          "Long stretch with few exits — not ideal if car breaks down at night",
+          "Good during daytime with heavy traffic"
+        ]
+      },
+      "hotspots": ["Noida Expressway Service Road (post midnight)"],
+      "safezones": ["Dhaula Kuan", "DND Toll Plaza"],
+      "recommended": { "day": true, "evening": true, "night": false, "soloFemale": false }
+    },
+    {
+      "id": "r5",
+      "name": "Kalindi Kunj Bridge Route",
+      "shortName": "Kalindi Kunj route",
+      "type": "road",
+      "via": ["Lajpat Nagar", "Mathura Road", "Kalindi Kunj", "Sector 37 Noida"],
+      "distanceKm": 16.8,
+      "durationMins": { "day": 35, "evening": 50, "night": 30 },
+      "safety": {
+        "lighting": 65,
+        "cctv": 58,
+        "police": 55,
+        "crimeIndex": 62,
+        "notes": [
+          "Kalindi Kunj bridge area poorly lit on eastern side",
+          "Mathura Road well-lit but heavy traffic in evening",
+          "Isolated stretch near Okhla Bird Sanctuary at night",
+          "Police naka at Kalindi Kunj during daytime",
+          "Avoid the riverbank road — use the main bridge only"
+        ]
+      },
+      "hotspots": ["Kalindi Kunj eastern approach", "Okhla stretch post 10 PM"],
+      "safezones": ["Lajpat Nagar Metro", "Mathura Road main carriageway"],
+      "recommended": { "day": true, "evening": false, "night": false, "soloFemale": false }
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "hotspots": [
+    {
+      "id": "h1",
+      "name": "Ghazipur Underpass",
+      "lat": 28.6370,
+      "lng": 77.3200,
+      "risk": "high",
+      "type": "isolated",
+      "activeHours": "21:00-06:00",
+      "description": "Poorly lit underpass with history of snatching incidents. Avoid at night.",
+      "avoidFor": ["soloFemale", "night"]
+    },
+    {
+      "id": "h2",
+      "name": "NH24 Service Road (Ghazipur stretch)",
+      "lat": 28.6280,
+      "lng": 77.3150,
+      "risk": "high",
+      "type": "poor-lighting",
+      "activeHours": "22:00-06:00",
+      "description": "Dark service road running parallel to NH24. Isolated after 10 PM.",
+      "avoidFor": ["soloFemale", "soloMale", "night"]
+    },
+    {
+      "id": "h3",
+      "name": "Shakarpur Lane (back roads)",
+      "lat": 28.6411,
+      "lng": 77.2850,
+      "risk": "high",
+      "type": "crime",
+      "activeHours": "20:00-06:00",
+      "description": "Narrow lanes with poor lighting. Reported snatching and harassment cases.",
+      "avoidFor": ["soloFemale", "night"]
+    },
+    {
+      "id": "h4",
+      "name": "Rohini Sector 3 Back Roads",
+      "lat": 28.7100,
+      "lng": 77.0900,
+      "risk": "medium",
+      "type": "isolated",
+      "activeHours": "23:00-06:00",
+      "description": "Residential back lanes with minimal street lighting after midnight.",
+      "avoidFor": ["soloFemale", "night"]
+    },
+    {
+      "id": "h5",
+      "name": "Noida Expressway Service Road",
+      "lat": 28.5200,
+      "lng": 77.3850,
+      "risk": "high",
+      "type": "isolated",
+      "activeHours": "22:00-06:00",
+      "description": "Very isolated after midnight. Few exits. Avoid for two-wheelers at night.",
+      "avoidFor": ["soloFemale", "soloMale", "night"]
+    },
+    {
+      "id": "h6",
+      "name": "Shahdara Market Area",
+      "lat": 28.6750,
+      "lng": 77.2950,
+      "risk": "medium",
+      "type": "crowding",
+      "activeHours": "18:00-22:00",
+      "description": "Heavy crowding in evening. Pickpocketing reported in market lanes.",
+      "avoidFor": ["soloFemale", "evening"]
+    },
+    {
+      "id": "h7",
+      "name": "Kalindi Kunj Eastern Approach",
+      "lat": 28.5500,
+      "lng": 77.3050,
+      "risk": "high",
+      "type": "poor-lighting",
+      "activeHours": "21:00-06:00",
+      "description": "Bridge approach from Noida side is very poorly lit. No police presence at night.",
+      "avoidFor": ["soloFemale", "night"]
+    },
+    {
+      "id": "h8",
+      "name": "Okhla Industrial Area (back lanes)",
+      "lat": 28.5350,
+      "lng": 77.2700,
+      "risk": "medium",
+      "type": "isolated",
+      "activeHours": "20:00-06:00",
+      "description": "Industrial area deserted after factory hours. Minimal lighting.",
+      "avoidFor": ["soloFemale", "night"]
+    },
+    {
+      "id": "h9",
+      "name": "GTB Nagar Metro Exit 2 Lane",
+      "lat": 28.7020,
+      "lng": 77.2060,
+      "risk": "medium",
+      "type": "poor-lighting",
+      "activeHours": "22:00-06:00",
+      "description": "Lane behind metro station poorly lit. Use main road instead.",
+      "avoidFor": ["soloFemale", "night"]
+    },
+    {
+      "id": "h10",
+      "name": "Sector 62 Noida Industrial Pocket",
+      "lat": 28.6200,
+      "lng": 77.3750,
+      "risk": "medium",
+      "type": "isolated",
+      "activeHours": "21:00-06:00",
+      "description": "Office/industrial zone empties after 9 PM. Avoid shortcuts through this area.",
+      "avoidFor": ["soloFemale", "night"]
+    }
+  ],
+  "safezones": [
+    {
+      "id": "sz1",
+      "name": "DND Flyway (full stretch)",
+      "lat": 28.5800,
+      "lng": 77.2990,
+      "features": ["cctv", "lighting", "police"],
+      "description": "Fully lit, CCTV every 200m, police stationed at both ends 24x7"
+    },
+    {
+      "id": "sz2",
+      "name": "Ring Road / NH48 Main Carriageway",
+      "lat": 28.6000,
+      "lng": 77.2000,
+      "features": ["cctv", "lighting", "traffic"],
+      "description": "Major arterial road, well-lit, always has traffic"
+    },
+    {
+      "id": "sz3",
+      "name": "Noida City Centre Metro Station",
+      "lat": 28.5741,
+      "lng": 77.3289,
+      "features": ["cctv", "police", "lighting", "women-helpdesk"],
+      "description": "CISF security, CCTV, women's helpdesk available"
+    },
+    {
+      "id": "sz4",
+      "name": "Connaught Place (Inner Circle)",
+      "lat": 28.6315,
+      "lng": 77.2167,
+      "features": ["cctv", "lighting", "police", "crowded"],
+      "description": "Heavy police presence, fully lit, always crowded till midnight"
+    },
+    {
+      "id": "sz5",
+      "name": "Akshardham Metro Station",
+      "lat": 28.6127,
+      "lng": 77.2773,
+      "features": ["cctv", "police", "lighting"],
+      "description": "CISF security, well-lit approach road"
+    },
+    {
+      "id": "sz6",
+      "name": "Saket Select Citywalk Area",
+      "lat": 28.5245,
+      "lng": 77.2066,
+      "features": ["cctv", "lighting", "crowded", "security"],
+      "description": "Mall security, well-lit surroundings, busy till 11 PM"
+    },
+    {
+      "id": "sz7",
+      "name": "Noida Sector 18 Market",
+      "lat": 28.5700,
+      "lng": 77.3219,
+      "features": ["lighting", "crowded", "cctv"],
+      "description": "Busy market area, well-lit, active till late evening"
+    },
+    {
+      "id": "sz8",
+      "name": "Ashram Metro Station",
+      "lat": 28.5700,
+      "lng": 77.2500,
+      "features": ["cctv", "police", "lighting"],
+      "description": "CISF security, connects Ring Road and DND"
+    }
+  ],
+  "emergencyContacts": {
+    "delhi": {
+      "police": "100",
+      "womenHelpline": "1091",
+      "allEmergencies": "112",
+      "delhiPolicePCR": "011-23490360",
+      "crimeStopper": "1090"
+    },
+    "noida": {
+      "police": "100",
+      "noidaPolice": "0120-2431116",
+      "womenHelpline": "1091",
+      "allEmergencies": "112"
+    }
+  },
+  "lightingData": {
+    "areas": [
+      { "name": "Connaught Place", "score": 95 },
+      { "name": "DND Flyway", "score": 92 },
+      { "name": "Ring Road NH48", "score": 88 },
+      { "name": "Saket", "score": 87 },
+      { "name": "Noida Sector 18", "score": 85 },
+      { "name": "Dwarka", "score": 83 },
+      { "name": "Rajouri Garden", "score": 80 },
+      { "name": "Lajpat Nagar", "score": 78 },
+      { "name": "Karol Bagh", "score": 76 },
+      { "name": "Mayur Vihar", "score": 75 },
+      { "name": "Noida Sector 62", "score": 74 },
+      { "name": "Rohini", "score": 70 },
+      { "name": "GTB Nagar", "score": 68 },
+      { "name": "NH24 Main Road", "score": 70 },
+      { "name": "Shahdara", "score": 62 },
+      { "name": "Kalindi Kunj Bridge", "score": 58 },
+      { "name": "NH24 Service Road", "score": 30 },
+      { "name": "Ghazipur Underpass", "score": 20 }
+    ]
+  }
+}
