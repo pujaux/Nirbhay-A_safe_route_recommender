@@ -2,8 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Shield } from "lucide-react";
 
 export function Navbar() {
-  const linkBase =
-    "px-4 py-1.5 rounded-full text-sm font-medium transition-all";
+  const linkBase = "px-4 py-1.5 rounded-full text-sm font-medium transition-all";
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-xl bg-cream/70 border-b border-border">
       <div className="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
@@ -12,12 +11,8 @@ export function Navbar() {
             <Shield className="w-4 h-4 text-ink" strokeWidth={2.5} />
           </span>
           <div className="leading-none">
-            <span className="font-display text-xl font-black text-ink tracking-tight">
-              Nirbhay
-            </span>
-            <span className="block text-[10px] italic text-blush mt-0.5">
-              walk fearless
-            </span>
+            <span className="font-display text-xl font-black text-ink tracking-tight">Nirbhay</span>
+            <span className="block text-[10px] italic text-blush mt-0.5">walk fearless</span>
           </div>
         </Link>
 

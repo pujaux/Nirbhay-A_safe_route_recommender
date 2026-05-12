@@ -53,8 +53,9 @@ function HomePage() {
             {/* Stats */}
             <div className="mt-10 grid grid-cols-3 gap-4 max-w-md">
               {[
-                { v: "20+", l: "Delhi areas" },
-                { v: "5", l: "Safe routes" },
+                { v: "20+", l: "Noida areas" },
+                { v: "35+", l: "Delhi areas" },
+                { v: "6", l: "Safe routes" },
                 { v: "10", l: "Hotspots mapped" },
               ].map((s) => (
                 <div
@@ -73,7 +74,7 @@ function HomePage() {
             <div className="absolute -top-10 -left-10 w-60 h-60 rounded-full bg-blush-soft blur-3xl opacity-70 -z-10" />
             <div className="absolute -bottom-10 -right-10 w-64 h-64 rounded-full bg-sun blur-3xl opacity-50 -z-10" />
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              <div className="relative rounded-[1.5rem] overflow-hidden border border-white/60 shadow-soft animate-float">
+              <div className="relative rounded-[1.5rem] overflow-hidden border border-white/60 shadow-(--shadow-glow) animate-float">
                 <img
                   src={heroWoman}
                   alt="A woman walking confidently down a sunlit street with headphones"
@@ -83,7 +84,7 @@ function HomePage() {
                 />
               </div>
               <div
-                className="relative rounded-[1.5rem] overflow-hidden border border-white/60 shadow-soft animate-float mt-6"
+                className="relative rounded-[1.5rem] overflow-hidden border border-white/60 shadow-(--shadow-glow) animate-float mt-6"
                 style={{ animationDelay: "0.4s" }}
               >
                 <img
