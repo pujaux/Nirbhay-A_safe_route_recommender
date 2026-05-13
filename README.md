@@ -1,10 +1,10 @@
-__🛡️ Nirbhay (Fearless)__
+## 🛡️ Nirbhay (Fearless)
 Every street, every hour.
 Nirbhay is a safe-route recommender designed to ensure that no one has to think twice before walking home. By combining real-time community reports with safety data, it transforms the way we navigate our cities—moving from "shortest path" to "safest path."
 <img width="1366" height="768" alt="Screenshot (1165)" src="https://github.com/user-attachments/assets/f4c4fd97-793c-4799-a2ad-97b820f4b13c" />
 
 
-__Why Nirbhay?__
+## Why Nirbhay?
 In many cities, the sun setting shouldn't mean a loss of freedom. Most navigation apps prioritize speed, often leading users through poorly lit or isolated areas.
 
 Nirbhay (meaning Fearless) was built to:
@@ -16,7 +16,7 @@ Surface community-driven safety reports (CCTV, lighting, crowds).
 Keep help just one tap away with an integrated SOS system.
 
 
-__Features__
+## Features
 Safety-First Routing: Algorithms that weigh street lighting and historical safety data over just distance.
 
 Community Watch: Real-time reporting of hotspots or safe zones by the people who live there.
@@ -26,7 +26,7 @@ SOS Integration: Quick access to emergency contacts and local authorities.
 Inclusive Design: Specific route scoring for solo travelers, groups, and different times of day.
 
 
-__Design Philosophy__
+## Design Philosophy
 The app uses a warm, grounding palette to provide a sense of security during high-stress moments:
 
 Sun (#FFD700): Representing light and clarity.
@@ -85,7 +85,8 @@ Google Maps API charges after $200/month free credit — a billing risk for a st
 <img width="1366" height="768" alt="Screenshot (1240)" src="https://github.com/user-attachments/assets/dfd685d7-4ba3-4cb8-8334-7a955b2971a8" />
 
 
-__Tech Stack__
+
+## Tech Stack
 Framework: React / Vite
 
 Styling: Tailwind CSS v4
@@ -98,7 +99,7 @@ Map:  Leaflet.js + OpenStreetMap
 
 
 
-__🚀 Future Scope__
+## 🚀 Future Scope
 1. Transition to an ML-Powered SystemWhile the current version uses a manual formula, the next phase involves upgrading to a Machine Learning layer.  Predictive Modeling: Instead of static weights, you can train Random Forest or XGBoost models to predict area safety scores.  Feature Expansion: The model can learn from complex features like crime counts, lighting, proximity to police, and specific area types (e.g., commercial vs. residential).  Dynamic Labeling: Implementing safety labels derived from historical crime severity data to provide more nuanced routing.
   
 2. Integration of Real-Time Safety SignalsTo make the app more "impressive" and research-worthy, you can incorporate additional live data points:  Crowd Density: Approximating population or crowd density based on the time of day using OSM area type tags.  Infrastructure Data: Incorporating municipal open data portals to track real-time street light density and maintenance.  Police Proximity: Refining the road graph to prioritize proximity to police stations extracted directly from OpenStreetMap.
