@@ -1,7 +1,8 @@
 ## 🛡️ Nirbhay (Fearless)
 Every street, every hour.
 Nirbhay is a safe-route recommender designed to ensure that no one has to think twice before walking home. By combining real-time community reports with safety data, it transforms the way we navigate our cities—moving from "shortest path" to "safest path."
-<img width="1366" height="768" alt="Screenshot (1165)" src="https://github.com/user-attachments/assets/f4c4fd97-793c-4799-a2ad-97b820f4b13c" />
+
+<img width="1323" height="599" alt="Screenshot (1241)" src="https://github.com/user-attachments/assets/db6b03da-6e02-43cb-881c-5e74b3d4f223" />
 
 
 ## Why Nirbhay?
@@ -34,13 +35,22 @@ Sun (#FFD700): Representing light and clarity.
 Blush: For empathy and human-centric design.
 
 Ink: For deep, readable contrast.
-<img width="1366" height="768" alt="Screenshot (1169)" src="https://github.com/user-attachments/assets/438e4d30-460d-4e55-8f39-3d9b50b95549" />
 
-<img width="1366" height="768" alt="Screenshot (1170)" src="https://github.com/user-attachments/assets/9b051bc2-80eb-4f0e-8a2c-99adffcf28cf" />
+<img width="1316" height="600" alt="Screenshot (1242)" src="https://github.com/user-attachments/assets/1fc0b8c6-4fe9-4be2-892d-dea07868bfc0" />
 
-<img width="1366" height="768" alt="Screenshot (1171)" src="https://github.com/user-attachments/assets/aedfec14-18ff-4893-890e-f23e3d87c22d" />
 
-<img width="1366" height="768" alt="Screenshot (1168)" src="https://github.com/user-attachments/assets/f4e7e23a-9aad-44f7-bbed-dd72de6d84c2" />
+<img width="1320" height="598" alt="Screenshot (1243)" src="https://github.com/user-attachments/assets/983fc7ea-e29a-448c-b976-70fd8dc60c98" />
+
+
+
+<img width="1325" height="500" alt="Screenshot (1244)" src="https://github.com/user-attachments/assets/313f0e67-848e-4a4c-8bdc-2f8cbb275a90" />
+
+
+<img width="1321" height="603" alt="Screenshot (1245)" src="https://github.com/user-attachments/assets/e695202d-8add-4369-914f-6789897963fa" />
+
+
+<img width="1322" height="608" alt="Screenshot (1246)" src="https://github.com/user-attachments/assets/6892791a-9fde-4cc9-960a-97f640252b08" />
+
 
 
 
