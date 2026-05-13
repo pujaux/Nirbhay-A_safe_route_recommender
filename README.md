@@ -82,7 +82,7 @@ All 6 Delhi–Noida routes drawn with safety color coding:
 ### Why Leaflet over Google Maps
 Google Maps API charges after $200/month free credit — a billing risk for a student project. Leaflet.js with OpenStreetMap is 100% free forever and used in production by Wikipedia and Facebook.
 
-<img width="1366" height="768" alt="Screenshot (1240)" src="https://github.com/user-attachments/assets/dfd685d7-4ba3-4cb8-8334-7a955b2971a8" />
+<img width="1181" height="608" alt="Screenshot (1240)" src="https://github.com/user-attachments/assets/aeb89299-c1e7-4d3b-9bbf-43756cddb4c0" />
 
 
 
