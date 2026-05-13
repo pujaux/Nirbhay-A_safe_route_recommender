@@ -3,6 +3,11 @@ import heroWoman from "@/assets/hero-woman.jpg";
 import heroMan from "@/assets/hero-man.jpg";
 import { RouteSearch } from "@/components/RouteSearch";
 import { Shield, MapPin, Users, Sparkles, MessageCircleHeart, AlertTriangle } from "lucide-react";
+import { MapView } from "../components/MapView";
+
+// inside your return JSX, before the last </div>:
+<MapView />;
+// add this somewhere in your return JSX:
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -234,6 +239,10 @@ function HomePage() {
           </div>
         </div>
       </section>
+      <div className="max-w-6xl mx-auto px-5 py-10">
+        <h2 className="text-2xl font-bold mb-4 text-ink">Route Map</h2>
+        <MapView />
+      </div>
     </div>
   );
 }
