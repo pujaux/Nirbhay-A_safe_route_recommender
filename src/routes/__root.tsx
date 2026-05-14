@@ -10,6 +10,8 @@ import {
 
 import appCss from "../styles.css?url";
 import { Navbar } from "@/components/Navbar";
+import { SOSButton } from "@/components/SOSButton";
+import { AlertBanner } from "@/components/AlertBanner";
 
 function NotFoundComponent() {
   return (
@@ -49,7 +51,9 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+export const Route = createRootRouteWithContext<{
+  queryClient: QueryClient;
+}>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -94,14 +98,37 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
+      {/* Sticky navbar */}
       <Navbar />
+
+      {/* Time-aware alert banner — shows automatically at night/evening */}
+      <AlertBanner />
+
+      {/* Main page content */}
       <Outlet />
+
+      {/* Footer */}
       <footer className="mt-20 border-t border-border bg-white/40 backdrop-blur">
-        <div className="max-w-6xl mx-auto px-5 py-8 text-center text-xs text-ink-light">
-          <p className="font-display italic text-blush text-base mb-1">walk fearless</p>
-          <p>© {new Date().getFullYear()} Nirbhay · Built for women, by women</p>
+        <div className="max-w-6xl mx-auto px-5 py-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-center sm:text-left">
+              <p className="font-display italic text-blush text-base">walk fearless</p>
+              <p className="text-xs text-ink-light mt-1">
+                © {new Date().getFullYear()} Nirbhay · Built for women, by everyone
+              </p>
+            </div>
+            <div className="flex flex-col items-center sm:items-end gap-1">
+              <p className="text-xs font-semibold text-ink">Emergency contacts</p>
+              <p className="text-xs text-ink-light">
+                Police: 100 · Women helpline: 1091 · All emergencies: 112
+              </p>
+            </div>
+          </div>
         </div>
       </footer>
+
+      {/* Floating SOS button — always visible */}
+      <SOSButton />
     </QueryClientProvider>
   );
 }
