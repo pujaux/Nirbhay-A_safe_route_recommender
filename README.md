@@ -23,8 +23,8 @@ Keep help just one tap away with an integrated SOS system.
 
 ## ✨ Live Features
 
-__FeatureDescription__
-🗺️ Route SearchSearch between 62 locations across Delhi & Noida.
+🗺️__FeatureDescription__
+Route SearchSearch between 62 locations across Delhi & Noida.
 
 🔢 __Safety Scoring__
 Weighted algorithm: lighting (30%) + CCTV (25%) + police (25%) + crime (20%).
