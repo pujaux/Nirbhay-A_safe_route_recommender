@@ -23,7 +23,41 @@ Keep help just one tap away with an integrated SOS system.
 
 ## ✨ Live Features
 
-FeatureDescription🗺️ Route SearchSearch between 62 locations across Delhi & Noida🔢 Safety ScoringWeighted algorithm: lighting (30%) + CCTV (25%) + police (25%) + crime (20%)📍 Location-awareScores adjust based on origin & destination zone safety🌙 Time-of-day modeNight penalties, evening advisories, metro availability👩 Gender filterSolo female travel gets stricter scoring and warnings🗺️ Live MapLeaflet.js + OpenStreetMap with route polylines, hotspot markers, safe zone overlays🚨 SOS ButtonFloating emergency contacts panel — tap to call 100, 1091, 112⚠️ Smart AlertsAuto banner based on current time — night/evening/day advisories💬 Firebase ReviewsCommunity reviews stored in Firestore — real-time, persistent🧠 NLP Sentiment AnalysisReviews analysed with keyword-weighted NLP engine — extracts safety signals📊 24-Hour Risk ChartVisual risk pattern showing safest and riskiest hours across Delhi🔔 ML Safety InsightsAggregate sentiment adjusts route safety scores based on community feedback
+__FeatureDescription__
+🗺️ Route SearchSearch between 62 locations across Delhi & Noida.
+
+🔢 __Safety Scoring__
+Weighted algorithm: lighting (30%) + CCTV (25%) + police (25%) + crime (20%).
+
+📍 __Location-awareScores__
+adjust based on origin & destination zone safety
+
+🌙 __Time-of-day mode__
+Night penalties, evening advisories, metro availability
+
+👩 __Gender filter__
+Solo female travel gets stricter scoring and warnings
+
+🗺️ __Live Map__
+Leaflet.js + OpenStreetMap with route polylines, hotspot markers, safe zone overlays
+
+🚨 __SOS Button__
+Floating emergency contacts panel — tap to call 100, 1091, 112
+
+⚠️ __Smart Alerts__
+Auto banner based on current time — night/evening/day advisories
+
+💬 __Firebase Reviews__
+Community reviews stored in Firestore — real-time, persistent
+
+🧠 ___NLP Sentiment Analysis__
+Reviews analysed with keyword-weighted NLP engine — extracts safety signals
+
+📊 __24-Hour Risk Chart__
+Visual risk pattern showing safest and riskiest hours across Delhi
+
+🔔 __ML Safety Insights__
+Aggregate sentiment adjusts route safety scores based on community feedback
 
 
 
