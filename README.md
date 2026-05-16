@@ -1,6 +1,7 @@
 ## 🛡️ Nirbhay (Fearless)
-Every street, every hour.
-Nirbhay is a safe-route recommender designed to ensure that no one has to think twice before walking home. By combining real-time community reports with safety data, it transforms the way we navigate our cities—moving from "shortest path" to "safest path."
+निर्भय · Safe Route Recommender for Delhi & Noida
+
+A web app that recommends the safest travel routes across Delhi and Noida — ranked by street lighting, CCTV coverage, police presence, and crime data. Scores adapt dynamically based on time of day, traveller profile, and real community reviews analysed with NLP.
 
 
 <img width="1181" height="611" alt="Screenshot (1273)" src="https://github.com/user-attachments/assets/0dbee46b-b789-483a-bc7a-584dc6de094f" />
@@ -20,24 +21,11 @@ Surface community-driven safety reports (CCTV, lighting, crowds).
 Keep help just one tap away with an integrated SOS system.
 
 
-## Features
-Safety-First Routing: Algorithms that weigh street lighting and historical safety data over just distance.
+## ✨ Live Features
 
-Community Watch: Real-time reporting of hotspots or safe zones by the people who live there.
-
-SOS Integration: Quick access to emergency contacts and local authorities.
-
-Inclusive Design: Specific route scoring for solo travelers, groups, and different times of day.
+FeatureDescription🗺️ Route SearchSearch between 62 locations across Delhi & Noida🔢 Safety ScoringWeighted algorithm: lighting (30%) + CCTV (25%) + police (25%) + crime (20%)📍 Location-awareScores adjust based on origin & destination zone safety🌙 Time-of-day modeNight penalties, evening advisories, metro availability👩 Gender filterSolo female travel gets stricter scoring and warnings🗺️ Live MapLeaflet.js + OpenStreetMap with route polylines, hotspot markers, safe zone overlays🚨 SOS ButtonFloating emergency contacts panel — tap to call 100, 1091, 112⚠️ Smart AlertsAuto banner based on current time — night/evening/day advisories💬 Firebase ReviewsCommunity reviews stored in Firestore — real-time, persistent🧠 NLP Sentiment AnalysisReviews analysed with keyword-weighted NLP engine — extracts safety signals📊 24-Hour Risk ChartVisual risk pattern showing safest and riskiest hours across Delhi🔔 ML Safety InsightsAggregate sentiment adjusts route safety scores based on community feedback
 
 
-## Design Philosophy
-The app uses a warm, grounding palette to provide a sense of security during high-stress moments:
-
-Sun (#FFD700): Representing light and clarity.
-
-Blush: For empathy and human-centric design.
-
-Ink: For deep, readable contrast.
 
 <img width="1316" height="600" alt="Screenshot (1242)" src="https://github.com/user-attachments/assets/1fc0b8c6-4fe9-4be2-892d-dea07868bfc0" />
 
@@ -55,6 +43,24 @@ Ink: For deep, readable contrast.
 <img width="1322" height="608" alt="Screenshot (1246)" src="https://github.com/user-attachments/assets/6892791a-9fde-4cc9-960a-97f640252b08" />
 
 
+## 🧠 ML / NLP Features
+Nirbhay uses a custom keyword-weighted NLP sentiment engine to analyse user reviews:
+Positive signals: "well lit" (+8), "police" (+6), "cctv" (+7), "safe" (+8), "comfortable" (+6)
+Negative signals: "dark" (-8), "harassed" (-10), "isolated" (-8), "snatching" (-10), "unsafe" (-9)
+
+Each review gets a sentiment score (-100 to +100)
+Confidence % shown per review card
+Aggregate sentiment adjusts route safety scores by up to ±5 points
+24-hour risk multipliers based on Delhi crime patterns — 1 AM is 1.5x riskier than 10 AM.
+
+<img width="1319" height="606" alt="Screenshot (1281)" src="https://github.com/user-attachments/assets/1fb15a10-a2fb-4b6d-b35b-79cc7ec1d945" />
+
+
+
+<img width="1315" height="610" alt="Screenshot (1279)" src="https://github.com/user-attachments/assets/03db7ec8-d3f1-4bef-a5fc-1e40b9906643" />
+
+
+<img width="1321" height="610" alt="Screenshot (1280)" src="https://github.com/user-attachments/assets/5ef27dc1-9b12-41c2-bc33-d39354f87efb" />
 
 
 ## 🗺️ Interactive Safety Map 
@@ -99,17 +105,17 @@ Google Maps API charges after $200/month free credit — a billing risk for a st
 
 
 
-## Tech Stack
-Framework: React / Vite
-
-Styling: Tailwind CSS v4
-
-Language: TypeScript (Strictly typed for reliability)
-
-Routing: TanStack Router
-
-Map:  Leaflet.js + OpenStreetMap
-
+## 🛠️ Tech Stack
+| Layer  |Tool  |Cost  |
+|--------|------|------|
+|Frontend |React 18 + TypeScript |Free|
+|Styling|Tailwind CSS| Free|
+|Routing| TanStack Router| Free|
+|Maps| Leaflet.js + OpenStreetMap| Free|
+|Database| Firebase Firestore| Free tier (50k reads/day)|
+|Build |Vite  | Free |
+|Hosting | Vercel |Free |
+|UI  | ScaffoldLovable (AI builder)|
 
 
 ## 🚀 Future Scope
