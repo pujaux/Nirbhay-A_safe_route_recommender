@@ -114,7 +114,7 @@ function RootComponent() {
             <div className="text-center sm:text-left">
               <p className="font-display italic text-blush text-base">walk fearless</p>
               <p className="text-xs text-ink-light mt-1">
-                © {new Date().getFullYear()} Nirbhay · Built for women, by everyone
+                © {new Date().getFullYear()} Nirbhay · Built for Women, by Women
               </p>
             </div>
             <div className="flex flex-col items-center sm:items-end gap-1">
