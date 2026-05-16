@@ -2,7 +2,10 @@
 Every street, every hour.
 Nirbhay is a safe-route recommender designed to ensure that no one has to think twice before walking home. By combining real-time community reports with safety data, it transforms the way we navigate our cities—moving from "shortest path" to "safest path."
 
-<img width="1323" height="599" alt="Screenshot (1241)" src="https://github.com/user-attachments/assets/db6b03da-6e02-43cb-881c-5e74b3d4f223" />
+
+<img width="1181" height="611" alt="Screenshot (1273)" src="https://github.com/user-attachments/assets/0dbee46b-b789-483a-bc7a-584dc6de094f" />
+
+
 
 
 ## Why Nirbhay?
