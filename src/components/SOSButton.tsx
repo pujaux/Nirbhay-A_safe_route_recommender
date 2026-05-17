@@ -32,7 +32,7 @@ export function SOSButton() {
 
       {/* SOS Panel */}
       {open && (
-        <div className="fixed bottom-16 right-4 sm:right-6 z-50 w-80 animate-fadeUp">
+        <div className="fixed bottom-20 right-4 sm:right-6 z-50 w-80 animate-fadeUp">
           <div className="bg-white rounded-3xl shadow-2xl border border-border overflow-hidden">
             {/* Header */}
             <div className="bg-destructive px-5 py-4 flex items-center justify-between">
@@ -106,7 +106,7 @@ export function SOSButton() {
       {/* Floating SOS button */}
       <button
         onClick={() => setOpen(!open)}
-        className={`fixed bottom-36 right-4 sm:right-6 z-50 flex items-center gap-2 px-5 py-3.5 rounded-full font-bold text-white shadow-2xl transition-all
+        className={`fixed bottom-6 right-4 sm:right-6 z-50 flex items-center gap-2 px-5 py-3.5 rounded-full font-bold text-white shadow-2xl transition-all
           ${
             open
               ? "bg-ink scale-95"

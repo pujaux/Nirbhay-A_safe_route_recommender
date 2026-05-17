@@ -55,20 +55,22 @@ export function RouteSearch() {
   return (
     <div>
       {/* Quick picks */}
-      <div className="flex flex-wrap gap-2 mb-4">
-        <span className="text-[11px] font-semibold uppercase tracking-wider text-ink-light self-center">
+      <div className="mb-4">
+        <span className="text-[11px] font-semibold uppercase tracking-wider text-ink-light block mb-2">
           Popular:
         </span>
-        {QUICK_PICKS.map((pick) => (
-          <button
-            key={pick.label}
-            type="button"
-            onClick={() => applyQuickPick(pick)}
-            className="text-xs bg-white/70 border border-border rounded-full px-3 py-1.5 text-ink-light hover:border-blush hover:text-blush transition-colors"
-          >
-            {pick.label}
-          </button>
-        ))}
+        <div className="flex flex-wrap gap-2">
+          {QUICK_PICKS.map((pick) => (
+            <button
+              key={pick.label}
+              type="button"
+              onClick={() => applyQuickPick(pick)}
+              className="text-xs bg-white/70 border border-border rounded-full px-3 py-1.5 text-ink-light hover:border-blush hover:text-blush transition-colors whitespace-nowrap"
+            >
+              {pick.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       <form

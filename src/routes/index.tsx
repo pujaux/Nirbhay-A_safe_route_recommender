@@ -102,14 +102,17 @@ function HomePage() {
                 />
               </div>
             </div>
-            <div className="mt-4 bg-white/85 backdrop-blur-md rounded-2xl px-4 py-3 flex items-center gap-3 border border-white shadow-soft">
-              <div className="w-9 h-9 rounded-full bg-gradient-warm flex items-center justify-center shrink-0">
+            <div className="mt-4 bg-white/85 backdrop-blur-md rounded-2xl px-4 py-3 flex items-start gap-3 border border-border">
+              <div className="w-8 h-8 rounded-full bg-gradient-warm flex items-center justify-center shrink-0 mt-0.5">
                 <Shield className="w-4 h-4 text-ink" />
               </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-xs text-ink-light">Tonight's recommended route</p>
-                <p className="text-sm font-semibold text-ink truncate">
-                  Lajpat Nagar → Sector 18 · 92% safe
+              <div className="min-w-0">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-light">
+                  Tonight's recommended route
+                </p>
+                <p className="text-sm font-semibold text-ink mt-0.5 leading-snug">
+                  Lajpat Nagar → Sector 18
+                  <span className="text-blush font-bold"> · 92% safe</span>
                 </p>
               </div>
             </div>
@@ -239,8 +242,9 @@ function HomePage() {
           </div>
         </div>
       </section>
-      <div className="max-w-6xl mx-auto px-5 py-10">
-        <h2 className="text-2xl font-bold mb-4 text-ink">Route Map</h2>
+      <div className="max-w-6xl mx-auto px-4 sm:px-5 py-6 sm:py-10">
+        <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-ink"> Route Map</h2>
+        <div className="rounded-xl overflow-hidden shadow-soft"></div>
         <MapView />
       </div>
     </div>

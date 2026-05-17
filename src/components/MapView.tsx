@@ -79,7 +79,7 @@ export function MapView() {
         { name: "Saket", lat: 28.5244, lng: 77.2066 },
       ];
 
-      const map = L.map(mapRef.current).setView([28.58, 77.28], 12);
+      const map = L.map(mapRef.current).setView([28.58, 77.209], 11);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
 
       // Red warning icon for hotspots
@@ -248,5 +248,14 @@ export function MapView() {
     };
   }, []);
 
-  return <div ref={mapRef} style={{ height: "450px", width: "100%", borderRadius: "12px" }} />;
+  return (
+    <div
+      ref={mapRef}
+      style={{
+        height: "clamp(280px, 50vw, 450px)",
+        width: "100%",
+        borderRadius: "0",
+      }}
+    />
+  );
 }
