@@ -242,19 +242,13 @@ function HomePage() {
           </div>
         </div>
       </section>
-      {/* 1. Reset this parent wrapper back to its normal padding classes */}
       <div className="max-w-6xl mx-auto px-4 sm:px-5 py-6 sm:py-10">
         <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-ink">Route Map</h2>
 
-        {/* 2. This wrapper holds the map. Let's add 'mb-12' (bottom margin) to force the footer down safely */}
+        {/* Clean, isolated wrapper for the map with extra bottom margin */}
         <div
-          className="mb-12"
-          style={{
-            height: "400px",
-            overflow: "hidden",
-            borderRadius: "16px",
-            boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-          }}
+          className="mb-24"
+          style={{ height: "450px", width: "100%", borderRadius: "16px", overflow: "hidden" }}
         >
           <MapView />
         </div>
