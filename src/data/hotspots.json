@@ -3,8 +3,8 @@
     {
       "id": "h1",
       "name": "Ghazipur Underpass",
-      "lat": 28.6370,
-      "lng": 77.3200,
+      "lat": 28.637,
+      "lng": 77.32,
       "risk": "high",
       "type": "isolated",
       "activeHours": "21:00-06:00",
@@ -14,8 +14,8 @@
     {
       "id": "h2",
       "name": "NH24 Service Road (Ghazipur stretch)",
-      "lat": 28.6280,
-      "lng": 77.3150,
+      "lat": 28.628,
+      "lng": 77.315,
       "risk": "high",
       "type": "poor-lighting",
       "activeHours": "22:00-06:00",
@@ -26,7 +26,7 @@
       "id": "h3",
       "name": "Shakarpur Lane (back roads)",
       "lat": 28.6411,
-      "lng": 77.2850,
+      "lng": 77.285,
       "risk": "high",
       "type": "crime",
       "activeHours": "20:00-06:00",
@@ -36,8 +36,8 @@
     {
       "id": "h4",
       "name": "Rohini Sector 3 Back Roads",
-      "lat": 28.7100,
-      "lng": 77.0900,
+      "lat": 28.71,
+      "lng": 77.09,
       "risk": "medium",
       "type": "isolated",
       "activeHours": "23:00-06:00",
@@ -47,8 +47,8 @@
     {
       "id": "h5",
       "name": "Noida Expressway Service Road",
-      "lat": 28.5200,
-      "lng": 77.3850,
+      "lat": 28.52,
+      "lng": 77.385,
       "risk": "high",
       "type": "isolated",
       "activeHours": "22:00-06:00",
@@ -58,8 +58,8 @@
     {
       "id": "h6",
       "name": "Shahdara Market Area",
-      "lat": 28.6750,
-      "lng": 77.2950,
+      "lat": 28.675,
+      "lng": 77.295,
       "risk": "medium",
       "type": "crowding",
       "activeHours": "18:00-22:00",
@@ -69,8 +69,8 @@
     {
       "id": "h7",
       "name": "Kalindi Kunj Eastern Approach",
-      "lat": 28.5500,
-      "lng": 77.3050,
+      "lat": 28.55,
+      "lng": 77.305,
       "risk": "high",
       "type": "poor-lighting",
       "activeHours": "21:00-06:00",
@@ -80,8 +80,8 @@
     {
       "id": "h8",
       "name": "Okhla Industrial Area (back lanes)",
-      "lat": 28.5350,
-      "lng": 77.2700,
+      "lat": 28.535,
+      "lng": 77.27,
       "risk": "medium",
       "type": "isolated",
       "activeHours": "20:00-06:00",
@@ -91,8 +91,8 @@
     {
       "id": "h9",
       "name": "GTB Nagar Metro Exit 2 Lane",
-      "lat": 28.7020,
-      "lng": 77.2060,
+      "lat": 28.702,
+      "lng": 77.206,
       "risk": "medium",
       "type": "poor-lighting",
       "activeHours": "22:00-06:00",
@@ -102,8 +102,8 @@
     {
       "id": "h10",
       "name": "Sector 62 Noida Industrial Pocket",
-      "lat": 28.6200,
-      "lng": 77.3750,
+      "lat": 28.62,
+      "lng": 77.375,
       "risk": "medium",
       "type": "isolated",
       "activeHours": "21:00-06:00",
@@ -115,16 +115,16 @@
     {
       "id": "sz1",
       "name": "DND Flyway (full stretch)",
-      "lat": 28.5800,
-      "lng": 77.2990,
+      "lat": 28.58,
+      "lng": 77.299,
       "features": ["cctv", "lighting", "police"],
       "description": "Fully lit, CCTV every 200m, police stationed at both ends 24x7"
     },
     {
       "id": "sz2",
       "name": "Ring Road / NH48 Main Carriageway",
-      "lat": 28.6000,
-      "lng": 77.2000,
+      "lat": 28.6,
+      "lng": 77.2,
       "features": ["cctv", "lighting", "traffic"],
       "description": "Major arterial road, well-lit, always has traffic"
     },
@@ -163,7 +163,7 @@
     {
       "id": "sz7",
       "name": "Noida Sector 18 Market",
-      "lat": 28.5700,
+      "lat": 28.57,
       "lng": 77.3219,
       "features": ["lighting", "crowded", "cctv"],
       "description": "Busy market area, well-lit, active till late evening"
@@ -171,8 +171,8 @@
     {
       "id": "sz8",
       "name": "Ashram Metro Station",
-      "lat": 28.5700,
-      "lng": 77.2500,
+      "lat": 28.57,
+      "lng": 77.25,
       "features": ["cctv", "police", "lighting"],
       "description": "CISF security, connects Ring Road and DND"
     }

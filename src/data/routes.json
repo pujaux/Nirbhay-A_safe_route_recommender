@@ -91,7 +91,10 @@
         ]
       },
       "safezones": ["Lajpat Nagar Metro", "Mathura Road main carriageway"],
-      "hotspots": ["Kalindi Kunj eastern approach after 9 PM", "Okhla Bird Sanctuary stretch at night"]
+      "hotspots": [
+        "Kalindi Kunj eastern approach after 9 PM",
+        "Okhla Bird Sanctuary stretch at night"
+      ]
     },
     {
       "id": "r5",
