@@ -242,7 +242,7 @@ function HomePage() {
           </div>
         </div>
       </section>
-      <div className="max-w-6xl mx-auto px-4 sm:px-5 py-6 sm:py-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-5 pt-6 pb-2 sm:pt-10 sm:pb-2">
         <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-ink">Route Map</h2>
 
         {/* Clean, isolated wrapper for the map with extra bottom margin */}
