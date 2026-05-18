@@ -111,7 +111,7 @@ function RootComponent() {
         </main>
 
         {/* Footer — Now guaranteed to sit safely below your content */}
-        <footer className="mt-0 border-t border-border bg-white/40 backdrop-blur">
+        <footer className="mt-20 border-t border-border bg-white/40 backdrop-blur">
           <div className="max-w-6xl mx-auto px-5 py-8">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-center sm:text-left">
