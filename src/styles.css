@@ -217,8 +217,3 @@
 .animate-float {
   animation: float 4s ease-in-out infinite;
 }
-.leaflet-container {
-  height: 100%;
-  width: 100%;
-  border-radius: 16px;
-}
