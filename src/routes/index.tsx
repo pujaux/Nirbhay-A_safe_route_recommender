@@ -246,7 +246,7 @@ function HomePage() {
         <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-ink"> Route Map</h2>
         <div className="rounded-xl overflow-hidden shadow-soft"></div>
         <div
-          style={{ marginTop: "80px", height: "400px", overflow: "hidden", borderRadius: "16px" }}
+          style={{ marginTop: "200px", height: "400px", overflow: "hidden", borderRadius: "16px" }}
         >
           <MapView />
         </div>
