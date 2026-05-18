@@ -93,42 +93,46 @@ function RootShell({ children }: { children: React.ReactNode }) {
     </html>
   );
 }
-
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Sticky navbar */}
-      <Navbar />
+      {/* 1. Full-height layout column wrapper */}
+      <div className="flex flex-col min-h-screen">
+        {/* Sticky navbar */}
+        <Navbar />
 
-      {/* Time-aware alert banner — shows automatically at night/evening */}
-      <AlertBanner />
+        {/* Time-aware alert banner — shows automatically at night/evening */}
+        <AlertBanner />
 
-      {/* Main page content */}
-      <Outlet />
+        {/* 2. Main content area that expands to push the footer down */}
+        <main className="flex-1">
+          <Outlet />
+        </main>
 
-      {/* Footer */}
-      <footer className="mt-20 border-t border-border bg-white/40 backdrop-blur">
-        <div className="max-w-6xl mx-auto px-5 py-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-center sm:text-left">
-              <p className="font-display italic text-blush text-base">walk fearless</p>
-              <p className="text-xs text-ink-light mt-1">
-                © {new Date().getFullYear()} Nirbhay · Built for Women, by Women
-              </p>
-            </div>
-            <div className="flex flex-col items-center sm:items-end gap-1">
-              <p className="text-xs font-semibold text-ink">Emergency contacts</p>
-              <p className="text-xs text-ink-light">
-                Police: 100 · Women helpline: 1091 · All emergencies: 112
-              </p>
+        {/* Footer — Now guaranteed to sit safely below your content */}
+        <footer className="mt-20 border-t border-border bg-white/40 backdrop-blur">
+          <div className="max-w-6xl mx-auto px-5 py-8">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="text-center sm:text-left">
+                <p className="font-display italic text-blush text-base">walk fearless</p>
+                <p className="text-xs text-ink-light mt-1">
+                  © {new Date().getFullYear()} Nirbhay · Built for Women, by Women
+                </p>
+              </div>
+              <div className="flex flex-col items-center sm:items-end gap-1">
+                <p className="text-xs font-semibold text-ink">Emergency contacts</p>
+                <p className="text-xs text-ink-light">
+                  Police: 100 · Women helpline: 1091 · All emergencies: 112
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </footer>
+        </footer>
 
-      {/* Floating SOS button — always visible */}
-      <SOSButton />
+        {/* Floating SOS button — always visible */}
+        <SOSButton />
+      </div>
     </QueryClientProvider>
   );
 }
