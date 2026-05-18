@@ -252,7 +252,7 @@ export function MapView() {
     <div
       ref={mapRef}
       style={{
-        height: "clamp(280px, 50vw, 450px)",
+        height: "clamp(200px, 50vw, 380px)",
         width: "100%",
         borderRadius: "0",
       }}
