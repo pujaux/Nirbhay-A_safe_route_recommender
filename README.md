@@ -148,7 +148,7 @@ Google Maps API charges after $200/month free credit — a billing risk for a st
 |Maps| Leaflet.js + OpenStreetMap| Free|
 |Database| Firebase Firestore| Free tier (50k reads/day)|
 |Build |Vite  | Free |
-|Hosting | Vercel |Free |
+|Hosting | cloudflare  |Free |
 |UI  | ScaffoldLovable (AI builder)|
 
 
