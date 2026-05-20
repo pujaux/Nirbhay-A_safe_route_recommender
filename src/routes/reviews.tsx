@@ -2,7 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useReviews } from "@/hooks/useReviews";
 import { formatDate } from "@/services/reviewsService";
-import { analyseReviewSentiment, aggregateSentiment } from "@/utils/sentimentAnalysis";
+import {
+  analyseReviewSentiment,
+  aggregateSentiment,
+} from "@/utils/sentimentAnalysis";
 import { RiskChart } from "@/components/RiskChart";
 import {
   Star,
@@ -54,7 +57,8 @@ function StarRating({
   size?: "sm" | "md" | "lg";
 }) {
   const [hover, setHover] = useState(0);
-  const sz = size === "sm" ? "w-3.5 h-3.5" : size === "lg" ? "w-7 h-7" : "w-5 h-5";
+  const sz =
+    size === "sm" ? "w-3.5 h-3.5" : size === "lg" ? "w-7 h-7" : "w-5 h-5";
   return (
     <div className="flex gap-0.5">
       {[1, 2, 3, 4, 5].map((i) => (
@@ -69,7 +73,9 @@ function StarRating({
         >
           <Star
             className={`${sz} transition-colors ${
-              i <= (hover || value) ? "fill-amber text-amber" : "fill-none text-border"
+              i <= (hover || value)
+                ? "fill-amber text-amber"
+                : "fill-none text-border"
             }`}
           />
         </button>
@@ -81,14 +87,24 @@ function StarRating({
 function SentimentBadge({ text }: { text: string }) {
   const result = analyseReviewSentiment(text);
   const config = {
-    positive: { bg: "bg-sage/10", text: "text-sage", icon: TrendingUp, label: "Positive signal" },
+    positive: {
+      bg: "bg-sage/10",
+      text: "text-sage",
+      icon: TrendingUp,
+      label: "Positive signal",
+    },
     negative: {
       bg: "bg-destructive/10",
       text: "text-destructive",
       icon: TrendingDown,
       label: "Safety concern",
     },
-    neutral: { bg: "bg-cream-dark", text: "text-ink-light", icon: Brain, label: "Neutral" },
+    neutral: {
+      bg: "bg-cream-dark",
+      text: "text-ink-light",
+      icon: Brain,
+      label: "Neutral",
+    },
   }[result.label];
 
   const Icon = config.icon;
@@ -99,7 +115,9 @@ function SentimentBadge({ text }: { text: string }) {
     >
       <Icon className="w-3 h-3" />
       <span className="text-[10px] font-semibold">{config.label}</span>
-      <span className="text-[10px] opacity-70">· {result.confidence}% confidence</span>
+      <span className="text-[10px] opacity-70">
+        · {result.confidence}% confidence
+      </span>
     </div>
   );
 }
@@ -134,7 +152,9 @@ function ReviewCard({
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between gap-2 flex-wrap">
             <p className="font-semibold text-ink text-sm">{review.name}</p>
-            <p className="text-xs text-ink-light">{formatDate(review.createdAt)}</p>
+            <p className="text-xs text-ink-light">
+              {formatDate(review.createdAt)}
+            </p>
           </div>
           <StarRating value={review.rating} readonly size="sm" />
         </div>
@@ -143,7 +163,9 @@ function ReviewCard({
       {review.route && (
         <div className="flex items-center gap-1.5 mb-2">
           <MapPin className="w-3 h-3 text-blush shrink-0" />
-          <p className="text-xs text-blush font-medium truncate">{review.route}</p>
+          <p className="text-xs text-blush font-medium truncate">
+            {review.route}
+          </p>
         </div>
       )}
 
@@ -153,21 +175,29 @@ function ReviewCard({
         </span>
       )}
 
-      <p className="text-sm text-ink-light leading-relaxed mb-3">{review.text}</p>
+      <p className="text-sm text-ink-light leading-relaxed mb-3">
+        {review.text}
+      </p>
 
       {/* ML Sentiment Badge */}
       <div className="flex flex-wrap items-center gap-2">
         <SentimentBadge text={review.text} />
         {sentiment.summary && (
-          <p className="text-[10px] text-ink-light italic">{sentiment.summary}</p>
+          <p className="text-[10px] text-ink-light italic">
+            {sentiment.summary}
+          </p>
         )}
       </div>
 
       {/* Safety signals extracted */}
-      {(sentiment.signals.positive.length > 0 || sentiment.signals.negative.length > 0) && (
+      {(sentiment.signals.positive.length > 0 ||
+        sentiment.signals.negative.length > 0) && (
         <div className="mt-2 flex flex-wrap gap-1.5">
           {sentiment.signals.positive.slice(0, 3).map((sig) => (
-            <span key={sig} className="text-[9px] bg-sage/10 text-sage px-2 py-0.5 rounded-full">
+            <span
+              key={sig}
+              className="text-[9px] bg-sage/10 text-sage px-2 py-0.5 rounded-full"
+            >
               +{sig}
             </span>
           ))}
@@ -185,7 +215,11 @@ function ReviewCard({
   );
 }
 
-function MLInsightsPanel({ reviews }: { reviews: { text: string; route: string }[] }) {
+function MLInsightsPanel({
+  reviews,
+}: {
+  reviews: { text: string; route: string }[];
+}) {
   const aggregate = aggregateSentiment(reviews.map((r) => r.text));
 
   if (reviews.length === 0) return null;
@@ -217,7 +251,9 @@ function MLInsightsPanel({ reviews }: { reviews: { text: string; route: string }
           <p className="text-[10px] text-cream/50 mt-0.5">Sentiment score</p>
         </div>
         <div className="bg-white/10 rounded-2xl p-3 text-center">
-          <p className="font-display text-2xl font-black text-sage">{aggregate.positiveCount}</p>
+          <p className="font-display text-2xl font-black text-sage">
+            {aggregate.positiveCount}
+          </p>
           <p className="text-[10px] text-cream/50 mt-0.5">Positive reviews</p>
         </div>
         <div className="bg-white/10 rounded-2xl p-3 text-center">
@@ -238,7 +274,13 @@ function MLInsightsPanel({ reviews }: { reviews: { text: string; route: string }
           )}
           <p className="text-xs text-cream/80">
             Community reviews suggest safety scores should be adjusted by{" "}
-            <span className={aggregate.adjustedSafetyBoost > 0 ? "text-sage" : "text-destructive"}>
+            <span
+              className={
+                aggregate.adjustedSafetyBoost > 0
+                  ? "text-sage"
+                  : "text-destructive"
+              }
+            >
               {aggregate.adjustedSafetyBoost > 0 ? "+" : ""}
               {aggregate.adjustedSafetyBoost} points
             </span>{" "}
@@ -255,7 +297,10 @@ function MLInsightsPanel({ reviews }: { reviews: { text: string; route: string }
           </p>
           <div className="flex flex-wrap gap-1.5">
             {aggregate.topPositiveSignals.map((sig) => (
-              <span key={sig} className="text-[10px] bg-sage/20 text-sage px-2 py-0.5 rounded-full">
+              <span
+                key={sig}
+                className="text-[10px] bg-sage/20 text-sage px-2 py-0.5 rounded-full"
+              >
                 ✓ {sig}
               </span>
             ))}
@@ -288,7 +333,13 @@ function ReviewsPage() {
   } = useReviews();
 
   const [rating, setRating] = useState(0);
-  const [form, setForm] = useState({ name: "", route: "", accuracy: "", text: "", gender: "any" });
+  const [form, setForm] = useState({
+    name: "",
+    route: "",
+    accuracy: "",
+    text: "",
+    gender: "any",
+  });
   const [formError, setFormError] = useState("");
   const [showChart, setShowChart] = useState(false);
 
@@ -333,7 +384,9 @@ function ReviewsPage() {
             {avgRating > 0 ? avgRating : "—"}
           </div>
           <StarRating value={Math.round(avgRating)} readonly size="sm" />
-          <p className="text-[10px] text-cream/50 mt-1">{totalReviews} reviews</p>
+          <p className="text-[10px] text-cream/50 mt-1">
+            {totalReviews} reviews
+          </p>
         </div>
       </div>
 
@@ -475,7 +528,8 @@ function ReviewsPage() {
           >
             {submitting ? (
               <>
-                <Loader2 className="w-4 h-4 animate-spin" /> Analysing & saving...
+                <Loader2 className="w-4 h-4 animate-spin" /> Analysing &
+                saving...
               </>
             ) : (
               <>
@@ -502,7 +556,9 @@ function ReviewsPage() {
       {loading && (
         <div className="flex items-center justify-center py-12">
           <Loader2 className="w-6 h-6 animate-spin text-blush" />
-          <span className="ml-2 text-sm text-ink-light">Loading & analysing reviews...</span>
+          <span className="ml-2 text-sm text-ink-light">
+            Loading & analysing reviews...
+          </span>
         </div>
       )}
 

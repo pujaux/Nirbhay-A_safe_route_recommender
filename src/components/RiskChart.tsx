@@ -5,7 +5,11 @@ const RISK_COLORS = {
   low: { bar: "bg-sage", text: "text-sage", bg: "bg-sage/10" },
   medium: { bar: "bg-amber", text: "text-amber", bg: "bg-sun-soft" },
   high: { bar: "bg-orange-500", text: "text-orange-500", bg: "bg-orange-50" },
-  critical: { bar: "bg-destructive", text: "text-destructive", bg: "bg-destructive/10" },
+  critical: {
+    bar: "bg-destructive",
+    text: "text-destructive",
+    bg: "bg-destructive/10",
+  },
 };
 
 function formatHour(hour: number): string {
@@ -31,18 +35,26 @@ export function RiskChart() {
               24-Hour Risk Pattern
             </p>
           </div>
-          <p className="font-display text-xl font-bold text-ink">When is Delhi safest?</p>
+          <p className="font-display text-xl font-bold text-ink">
+            When is Delhi safest?
+          </p>
           <p className="text-xs text-ink-light mt-1">
             Based on crime data, lighting patterns, and police patrol schedules
           </p>
         </div>
 
         {/* Current hour badge */}
-        <div className={`${colors.bg} rounded-2xl px-3 py-2 text-center shrink-0`}>
-          <p className={`text-[10px] font-semibold uppercase tracking-wide ${colors.text}`}>
+        <div
+          className={`${colors.bg} rounded-2xl px-3 py-2 text-center shrink-0`}
+        >
+          <p
+            className={`text-[10px] font-semibold uppercase tracking-wide ${colors.text}`}
+          >
             Right now
           </p>
-          <p className={`font-display text-lg font-black leading-none mt-0.5 ${colors.text}`}>
+          <p
+            className={`font-display text-lg font-black leading-none mt-0.5 ${colors.text}`}
+          >
             {formatHour(currentHour)}
           </p>
           <p className={`text-[10px] font-semibold mt-0.5 ${colors.text}`}>
@@ -96,26 +108,45 @@ export function RiskChart() {
       <div className="flex flex-wrap gap-3 mb-4">
         {(["low", "medium", "high", "critical"] as const).map((level) => (
           <div key={level} className="flex items-center gap-1.5">
-            <div className={`w-2.5 h-2.5 rounded-sm ${RISK_COLORS[level].bar}`} />
-            <span className="text-[10px] text-ink-light capitalize">{level}</span>
+            <div
+              className={`w-2.5 h-2.5 rounded-sm ${RISK_COLORS[level].bar}`}
+            />
+            <span className="text-[10px] text-ink-light capitalize">
+              {level}
+            </span>
           </div>
         ))}
       </div>
 
       {/* Current advisory */}
       <div className={`${colors.bg} rounded-2xl p-3`}>
-        <p className={`text-xs font-semibold ${colors.text} mb-1`}>{currentRisk.label}</p>
-        <p className="text-xs text-ink-light leading-relaxed">{currentRisk.recommendation}</p>
+        <p className={`text-xs font-semibold ${colors.text} mb-1`}>
+          {currentRisk.label}
+        </p>
+        <p className="text-xs text-ink-light leading-relaxed">
+          {currentRisk.recommendation}
+        </p>
       </div>
 
       {/* Key insights */}
       <div className="mt-3 grid grid-cols-3 gap-2">
         {[
           { time: "6am–5pm", label: "Safest", color: "bg-sage/10 text-sage" },
-          { time: "8pm–10pm", label: "Caution", color: "bg-sun-soft text-amber" },
-          { time: "10pm–5am", label: "High risk", color: "bg-destructive/10 text-destructive" },
+          {
+            time: "8pm–10pm",
+            label: "Caution",
+            color: "bg-sun-soft text-amber",
+          },
+          {
+            time: "10pm–5am",
+            label: "High risk",
+            color: "bg-destructive/10 text-destructive",
+          },
         ].map((item) => (
-          <div key={item.time} className={`${item.color} rounded-xl px-2 py-2 text-center`}>
+          <div
+            key={item.time}
+            className={`${item.color} rounded-xl px-2 py-2 text-center`}
+          >
             <p className="text-[10px] font-bold">{item.label}</p>
             <p className="text-[9px] opacity-80 mt-0.5">{item.time}</p>
           </div>

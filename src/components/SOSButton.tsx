@@ -2,12 +2,42 @@ import { useState } from "react";
 import { Phone, X, Shield, AlertTriangle, ExternalLink } from "lucide-react";
 
 const EMERGENCY_CONTACTS = [
-  { name: "All Emergencies", number: "112", desc: "Police + Ambulance + Fire", priority: true },
-  { name: "Women Helpline", number: "1091", desc: "24x7 Delhi & Noida", priority: true },
-  { name: "Police", number: "100", desc: "Delhi Police control room", priority: false },
-  { name: "Delhi Police PCR", number: "011-23490360", desc: "PCR van dispatch", priority: false },
-  { name: "Noida Police", number: "0120-2431116", desc: "Noida control room", priority: false },
-  { name: "Crime Stopper", number: "1090", desc: "Anonymous tip line", priority: false },
+  {
+    name: "All Emergencies",
+    number: "112",
+    desc: "Police + Ambulance + Fire",
+    priority: true,
+  },
+  {
+    name: "Women Helpline",
+    number: "1091",
+    desc: "24x7 Delhi & Noida",
+    priority: true,
+  },
+  {
+    name: "Police",
+    number: "100",
+    desc: "Delhi Police control room",
+    priority: false,
+  },
+  {
+    name: "Delhi Police PCR",
+    number: "011-23490360",
+    desc: "PCR van dispatch",
+    priority: false,
+  },
+  {
+    name: "Noida Police",
+    number: "0120-2431116",
+    desc: "Noida control room",
+    priority: false,
+  },
+  {
+    name: "Crime Stopper",
+    number: "1090",
+    desc: "Anonymous tip line",
+    priority: false,
+  },
 ];
 
 export function SOSButton() {
@@ -39,8 +69,12 @@ export function SOSButton() {
               <div className="flex items-center gap-2.5">
                 <Shield className="w-5 h-5 text-white" />
                 <div>
-                  <p className="text-white font-bold text-sm">Emergency Contacts</p>
-                  <p className="text-white/70 text-xs">Tap any number to call</p>
+                  <p className="text-white font-bold text-sm">
+                    Emergency Contacts
+                  </p>
+                  <p className="text-white/70 text-xs">
+                    Tap any number to call
+                  </p>
                 </div>
               </div>
               <button
@@ -95,8 +129,9 @@ export function SOSButton() {
             <div className="mx-3 mb-3 bg-sun-soft border border-sun rounded-2xl px-4 py-3 flex gap-2">
               <AlertTriangle className="w-4 h-4 text-amber shrink-0 mt-0.5" />
               <p className="text-xs text-ink-light leading-relaxed">
-                <span className="font-semibold text-ink">Safety tip:</span> Share your live location
-                with a trusted contact before travelling at night.
+                <span className="font-semibold text-ink">Safety tip:</span>{" "}
+                Share your live location with a trusted contact before
+                travelling at night.
               </p>
             </div>
           </div>

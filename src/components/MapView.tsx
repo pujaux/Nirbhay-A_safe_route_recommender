@@ -59,7 +59,12 @@ export function MapView() {
           lng: 77.2756,
           reason: "Deserted after factory hours",
         },
-        { name: "GTB Nagar Metro Exit 2", lat: 28.7006, lng: 77.2056, reason: "Poorly lit lane" },
+        {
+          name: "GTB Nagar Metro Exit 2",
+          lat: 28.7006,
+          lng: 77.2056,
+          reason: "Poorly lit lane",
+        },
         {
           name: "Sector 62 Industrial Pocket",
           lat: 28.627,
@@ -80,7 +85,9 @@ export function MapView() {
       ];
 
       const map = L.map(mapRef.current).setView([28.58, 77.209], 11);
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(
+        map,
+      );
 
       // Red warning icon for hotspots
       const warningIcon = L.divIcon({
@@ -100,7 +107,8 @@ export function MapView() {
 
       // Add hotspot markers
       hotspots.forEach((spot) => {
-        L.marker([spot.lat, spot.lng], { icon: warningIcon }).addTo(map).bindPopup(`
+        L.marker([spot.lat, spot.lng], { icon: warningIcon }).addTo(map)
+          .bindPopup(`
             <div style="font-family: sans-serif; min-width: 180px;">
               <div style="font-weight: bold; color: #ef4444; margin-bottom: 4px;">
                 ⚠️ ${spot.name}

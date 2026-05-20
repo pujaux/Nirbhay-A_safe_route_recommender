@@ -38,7 +38,8 @@ const ALERTS: Record<
     border: "border-sun",
     iconColor: "text-amber",
     title: "Evening hours — stay alert",
-    message: "Traffic is high and lighting is reducing. Metro is your safest option before 11 PM.",
+    message:
+      "Traffic is high and lighting is reducing. Metro is your safest option before 11 PM.",
     tip: "Avoid shortcut lanes and stay on well-lit main roads.",
   },
   safe: {
@@ -79,19 +80,27 @@ export function AlertBanner() {
   const isNight = level === "night";
 
   return (
-    <div className={`${a.bg} ${a.border} border-b px-4 py-3 flex items-start gap-3 relative`}>
+    <div
+      className={`${a.bg} ${a.border} border-b px-4 py-3 flex items-start gap-3 relative`}
+    >
       <div className={`mt-0.5 shrink-0 ${a.iconColor}`}>
         <Icon className="w-4 h-4" />
       </div>
 
       <div className="flex-1 min-w-0">
-        <p className={`text-xs font-semibold ${isNight ? "text-cream" : "text-ink"}`}>{a.title}</p>
+        <p
+          className={`text-xs font-semibold ${isNight ? "text-cream" : "text-ink"}`}
+        >
+          {a.title}
+        </p>
         <p
           className={`text-xs mt-0.5 leading-relaxed ${isNight ? "text-cream/70" : "text-ink-light"}`}
         >
           {a.message}
         </p>
-        <p className={`text-xs mt-1 font-medium ${isNight ? "text-amber" : "text-amber"}`}>
+        <p
+          className={`text-xs mt-1 font-medium ${isNight ? "text-amber" : "text-amber"}`}
+        >
           💡 {a.tip}
         </p>
       </div>
@@ -109,7 +118,13 @@ export function AlertBanner() {
 }
 
 // Inline alert for use inside route cards
-export function InlineAlert({ hour, gender }: { hour: number; gender: string }) {
+export function InlineAlert({
+  hour,
+  gender,
+}: {
+  hour: number;
+  gender: string;
+}) {
   const level = getAlertLevel(hour);
   if (!level) return null;
 
@@ -119,7 +134,9 @@ export function InlineAlert({ hour, gender }: { hour: number; gender: string }) 
   return (
     <div
       className={`rounded-2xl p-3 flex gap-2 mb-4 ${
-        isNight ? "bg-[#1A1A1A] border border-[#333]" : "bg-sun-soft border border-sun"
+        isNight
+          ? "bg-[#1A1A1A] border border-[#333]"
+          : "bg-sun-soft border border-sun"
       }`}
     >
       {isNight ? (
@@ -128,7 +145,9 @@ export function InlineAlert({ hour, gender }: { hour: number; gender: string }) 
         <Sunset className="w-4 h-4 text-amber shrink-0 mt-0.5" />
       )}
       <div>
-        <p className={`text-xs font-semibold ${isNight ? "text-cream" : "text-ink"}`}>
+        <p
+          className={`text-xs font-semibold ${isNight ? "text-cream" : "text-ink"}`}
+        >
           {isNight ? "Night travel advisory" : "Evening advisory"}
         </p>
         <p
@@ -150,7 +169,9 @@ export function HotspotWarning({ hotspots }: { hotspots: string[] }) {
     <div className="bg-destructive/10 rounded-2xl p-3 mt-2 flex gap-2">
       <AlertTriangle className="w-4 h-4 text-destructive shrink-0 mt-0.5" />
       <div>
-        <p className="text-[11px] font-semibold text-destructive mb-1">Avoid these spots</p>
+        <p className="text-[11px] font-semibold text-destructive mb-1">
+          Avoid these spots
+        </p>
         {hotspots.map((h, i) => (
           <p key={i} className="text-xs text-destructive/90 leading-relaxed">
             • {h}

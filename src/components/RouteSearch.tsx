@@ -11,9 +11,17 @@ const allLocations = [
 // Popular route quick-picks
 const QUICK_PICKS = [
   { from: "Connaught Place", to: "Sector 18 Noida", label: "CP → Sector 18" },
-  { from: "Lajpat Nagar", to: "Noida City Centre", label: "Lajpat → City Centre" },
+  {
+    from: "Lajpat Nagar",
+    to: "Noida City Centre",
+    label: "Lajpat → City Centre",
+  },
   { from: "Saket", to: "Sector 62 Noida", label: "Saket → Sector 62" },
-  { from: "Karol Bagh", to: "Sector 18 Noida", label: "Karol Bagh → Sector 18" },
+  {
+    from: "Karol Bagh",
+    to: "Sector 18 Noida",
+    label: "Karol Bagh → Sector 18",
+  },
 ];
 
 export function RouteSearch() {
@@ -24,13 +32,17 @@ export function RouteSearch() {
     const n = new Date();
     return `${String(n.getHours()).padStart(2, "0")}:${String(n.getMinutes()).padStart(2, "0")}`;
   });
-  const [gender, setGender] = useState<"any" | "female" | "male" | "group">("any");
+  const [gender, setGender] = useState<"any" | "female" | "male" | "group">(
+    "any",
+  );
   const [error, setError] = useState("");
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    if (!from || !to) return setError("Please select a starting point and destination.");
-    if (from === to) return setError("Origin and destination cannot be the same.");
+    if (!from || !to)
+      return setError("Please select a starting point and destination.");
+    if (from === to)
+      return setError("Origin and destination cannot be the same.");
     setError("");
     navigate({ to: "/routes", search: { from, to, time, gender } });
   }
@@ -84,7 +96,11 @@ export function RouteSearch() {
               <MapPin className="w-3 h-3" />
               From
             </label>
-            <select className={fieldCls} value={from} onChange={(e) => setFrom(e.target.value)}>
+            <select
+              className={fieldCls}
+              value={from}
+              onChange={(e) => setFrom(e.target.value)}
+            >
               <option value="">Select starting point</option>
               <optgroup label="— Delhi —">
                 {zones.delhi.map((z) => (
@@ -124,7 +140,11 @@ export function RouteSearch() {
               <MapPin className="w-3 h-3" />
               To
             </label>
-            <select className={fieldCls} value={to} onChange={(e) => setTo(e.target.value)}>
+            <select
+              className={fieldCls}
+              value={to}
+              onChange={(e) => setTo(e.target.value)}
+            >
               <option value="">Select destination</option>
               <optgroup label="— Delhi —">
                 {zones.delhi.map((z) => (
@@ -165,7 +185,11 @@ export function RouteSearch() {
               <select
                 className={fieldCls}
                 value={gender}
-                onChange={(e) => setGender(e.target.value as "any" | "female" | "male" | "group")}
+                onChange={(e) =>
+                  setGender(
+                    e.target.value as "any" | "female" | "male" | "group",
+                  )
+                }
               >
                 <option value="any">Anyone</option>
                 <option value="female">Solo female</option>
@@ -188,8 +212,8 @@ export function RouteSearch() {
             const isNight = h >= 21 || h < 6;
             return isNight ? (
               <div className="bg-sun-soft border border-sun rounded-xl px-3 py-2 text-xs text-amber font-medium">
-                🌙 Night time selected — only road routes will be shown (metro unavailable after 11
-                PM)
+                🌙 Night time selected — only road routes will be shown (metro
+                unavailable after 11 PM)
               </div>
             ) : null;
           })()}
@@ -208,7 +232,9 @@ export function RouteSearch() {
       {/* Emergency strip */}
       <div className="mt-4 bg-white/60 border border-border rounded-2xl px-4 py-3 flex items-center justify-between gap-3">
         <div>
-          <p className="text-xs font-semibold text-ink">🚨 Emergency contacts</p>
+          <p className="text-xs font-semibold text-ink">
+            🚨 Emergency contacts
+          </p>
           <p className="text-[11px] text-ink-light mt-0.5">
             Police: 100 · Women helpline: 1091 · All emergencies: 112
           </p>

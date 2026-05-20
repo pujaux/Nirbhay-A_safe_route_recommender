@@ -1,3 +1,5 @@
+import { Cctv } from "lucide-react";
+
 export type Gender = "female" | "male" | "group" | "any";
 export type TimeCategory = "day" | "evening" | "night";
 

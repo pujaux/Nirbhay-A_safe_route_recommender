@@ -9,6 +9,7 @@ import {
   getTimeCategory,
   type Gender,
 } from "@/utils/safetyScore";
+import { dijkstra } from "@/utils/dijkstra";
 import { RouteSearch } from "@/components/RouteSearch";
 import {
   ArrowLeft,
@@ -36,7 +37,8 @@ export const Route = createFileRoute("/routes")({
 });
 
 function Bar({ label, value }: { label: string; value: number }) {
-  const tone = value >= 80 ? "bg-sage" : value >= 60 ? "bg-amber" : "bg-destructive";
+  const tone =
+    value >= 80 ? "bg-sage" : value >= 60 ? "bg-amber" : "bg-destructive";
   return (
     <div className="mb-2.5">
       <div className="flex justify-between text-xs mb-1">
@@ -54,12 +56,22 @@ function Bar({ label, value }: { label: string; value: number }) {
 }
 
 function ScoreRing({ score }: { score: number }) {
-  const color = score >= 82 ? "text-sage" : score >= 65 ? "text-amber" : "text-destructive";
-  const bg = score >= 82 ? "bg-sage/10" : score >= 65 ? "bg-sun-soft" : "bg-destructive/10";
+  const color =
+    score >= 82 ? "text-sage" : score >= 65 ? "text-amber" : "text-destructive";
+  const bg =
+    score >= 82
+      ? "bg-sage/10"
+      : score >= 65
+        ? "bg-sun-soft"
+        : "bg-destructive/10";
   return (
     <div className={`${bg} rounded-2xl px-4 py-3 text-center min-w-20`}>
-      <div className={`font-display text-3xl font-black leading-none ${color}`}>{score}%</div>
-      <div className={`text-[10px] font-semibold mt-1 ${color}`}>{getSafetyLabel(score).label}</div>
+      <div className={`font-display text-3xl font-black leading-none ${color}`}>
+        {score}%
+      </div>
+      <div className={`text-[10px] font-semibold mt-1 ${color}`}>
+        {getSafetyLabel(score).label}
+      </div>
     </div>
   );
 }
@@ -73,7 +85,16 @@ function RoutesPage() {
   const isEvening = cat === "evening";
 
   const ranked = useMemo(() => {
-    return routesData.routes
+    // ── 1. Score + filter every route ───────────────────────────────────────
+    type ScoredRoute = (typeof routesData.routes)[number] & {
+      score: number;
+      safetyLabel: string;
+      duration: number | null;
+      advisory: string | null;
+      dijkstraWeight: number | null;
+    };
+
+    const scored: ScoredRoute[] = routesData.routes
       .filter((r) => !(r.type === "metro" && isNight))
       .map((r) => {
         const score = calculateSafetyScore({
@@ -83,30 +104,50 @@ function RoutesPage() {
           crime: r.safety.crimeIndex,
           hour,
           gender: gender as Gender,
-          fromZone: from, // ← location-aware
-          toZone: to, // ← location-aware
+          fromZone: from,
+          toZone: to,
         });
         const advisory = getSafetyAdvisory(score, cat, gender as Gender);
         return {
           ...r,
           score,
           safetyLabel: getSafetyLabel(score).label,
-          duration: (r.durationMins as Record<string, number | null>)[cat] ?? r.durationMins.day,
+          duration:
+            (r.durationMins as Record<string, number | null>)[cat] ??
+            r.durationMins.day,
           advisory,
+          dijkstraWeight: null as number | null,
         };
-      })
-      .sort((a, b) => b.score - a.score);
-  }, [hour, gender, isNight, cat, from, to]);
+      });
+
+    // ── 2. Run Dijkstra to rank routes by safety-weighted distance ───────────
+    //    Each route is treated as a direct edge from origin → destination.
+    //    Weight = distance × (1 + safetyPenalty × 2), so safer + shorter wins.
+    const dijkstraResult = dijkstra(scored);
+
+    // ── 3. Sort by Dijkstra rank (lowest weight first) ───────────────────────
+    const rankMap = new Map(dijkstraResult.rankedIds.map((id, i) => [id, i]));
+    const sortedRoutes = scored.sort(
+      (a, b) => (rankMap.get(a.id) ?? 99) - (rankMap.get(b.id) ?? 99),
+    );
+    // Attach dijkstra weight so cards can display it
+    return sortedRoutes.map((r) => ({
+      ...r,
+      dijkstraWeight: dijkstraResult.weights[r.id] ?? null,
+    }));
+  }, [from, to, gender, hour, cat, isNight]);
 
   const genderLabel: string = (
-    { female: "Solo female", male: "Solo male", group: "Group", any: "Any traveller" } as Record<
-      string,
-      string
-    >
+    {
+      female: "Solo female",
+      male: "Solo male",
+      group: "Group",
+      any: "Any traveller",
+    } as Record<string, string>
   )[gender];
 
-  // Score difference between best and worst route
-  const scoreDiff = ranked.length > 1 ? ranked[0].score - ranked[ranked.length - 1].score : 0;
+  const scoreDiff =
+    ranked.length > 1 ? ranked[0].score - ranked[ranked.length - 1].score : 0;
 
   if (!hasSearch) {
     return (
@@ -171,13 +212,15 @@ function RoutesPage() {
           </div>
         </div>
 
-        {/* Score spread indicator */}
         {ranked.length > 1 && (
           <div className="mt-4 pt-4 border-t border-border flex items-center gap-3">
             <Info className="w-4 h-4 text-ink-light shrink-0" />
             <p className="text-xs text-ink-light">
               Safety scores for this journey range from{" "}
-              <span className="font-semibold text-ink">{ranked[ranked.length - 1].score}%</span> to{" "}
+              <span className="font-semibold text-ink">
+                {ranked[ranked.length - 1].score}%
+              </span>{" "}
+              to{" "}
               <span className="font-semibold text-ink">{ranked[0].score}%</span>
               {scoreDiff >= 15 && (
                 <span className="text-blush font-medium">
@@ -190,7 +233,6 @@ function RoutesPage() {
         )}
       </div>
 
-      {/* Night advisory */}
       {isNight && (
         <div className="bg-sun-soft border border-sun rounded-2xl p-4 mb-5 flex gap-3 animate-fadeUp delay-1">
           <Moon className="w-5 h-5 text-amber shrink-0 mt-0.5" />
@@ -198,38 +240,44 @@ function RoutesPage() {
             <p className="font-semibold text-ink">Night travel advisory</p>
             <p className="text-ink-light mt-1">
               Stick to main roads. Avoid shortcuts and underpasses.
-              {gender === "female" && " Share your live location with a trusted contact."} Metro
-              unavailable after 11 PM.
+              {gender === "female" &&
+                " Share your live location with a trusted contact."}{" "}
+              Metro unavailable after 11 PM.
             </p>
           </div>
         </div>
       )}
 
-      {/* Evening advisory */}
       {isEvening && !isNight && (
         <div className="bg-sun-soft border border-sun rounded-2xl p-3 mb-5 flex gap-2 animate-fadeUp delay-1">
           <Sunset className="w-4 h-4 text-amber shrink-0 mt-0.5" />
           <p className="text-sm text-ink-light">
-            Evening hours — traffic is high. Metro is the safer option before 11 PM.
+            Evening hours — traffic is high. Metro is the safer option before 11
+            PM.
           </p>
         </div>
       )}
 
-      {/* Route cards */}
       <div className="space-y-4">
         {ranked.map((r, i) => (
           <div
             key={r.id}
             className={`animate-fadeUp bg-white/90 backdrop-blur rounded-3xl p-5 sm:p-6 transition-shadow ${
-              i === 0 ? "border-2 border-blush shadow-soft" : "border border-border"
+              i === 0
+                ? "border-2 border-blush shadow-soft"
+                : "border border-border"
             }`}
             style={{ animationDelay: `${0.1 + i * 0.08}s` }}
           >
-            {/* Badges */}
             <div className="flex flex-wrap gap-1.5 mb-3">
               {i === 0 && (
                 <span className="inline-flex items-center gap-1 text-[11px] font-semibold bg-blush text-white px-2.5 py-1 rounded-full">
                   <Star className="w-3 h-3 fill-white" /> Recommended
+                </span>
+              )}
+              {i === 0 && (
+                <span className="inline-flex items-center gap-1 text-[10px] font-medium bg-sage/10 text-sage px-2.5 py-1 rounded-full">
+                  <ShieldCheck className="w-3 h-3" /> Optimal path · Dijkstra
                 </span>
               )}
               {r.type === "metro" && (
@@ -244,31 +292,49 @@ function RoutesPage() {
               )}
             </div>
 
-            {/* Title + Score */}
             <div className="flex justify-between items-start gap-4 mb-4">
               <div className="flex-1">
                 <p className="font-semibold text-ink">{r.shortName}</p>
-                <p className="text-xs text-ink-light mt-1 leading-relaxed">{r.via.join(" → ")}</p>
+                <p className="text-xs text-ink-light mt-1 leading-relaxed">
+                  {r.via.join(" → ")}
+                </p>
               </div>
               <ScoreRing score={r.score} />
+              {r.dijkstraWeight !== null && r.dijkstraWeight !== undefined && (
+                <div className="text-center">
+                  <div className="text-[11px] font-bold text-ink-light">
+                    {r.dijkstraWeight}
+                  </div>
+                  <div className="text-[9px] text-ink-light uppercase tracking-wide">
+                    weight
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* Stats */}
             <div className="flex gap-2 mb-4">
               <div className="flex-1 bg-cream rounded-xl py-2.5 text-center">
-                <div className="text-base font-bold text-ink">{r.duration} min</div>
-                <div className="text-[10px] text-ink-light uppercase tracking-wide">duration</div>
+                <div className="text-base font-bold text-ink">
+                  {r.duration} min
+                </div>
+                <div className="text-[10px] text-ink-light uppercase tracking-wide">
+                  duration
+                </div>
               </div>
               {r.distanceKm && (
                 <div className="flex-1 bg-cream rounded-xl py-2.5 text-center">
-                  <div className="text-base font-bold text-ink">{r.distanceKm} km</div>
-                  <div className="text-[10px] text-ink-light uppercase tracking-wide">distance</div>
+                  <div className="text-base font-bold text-ink">
+                    {r.distanceKm} km
+                  </div>
+                  <div className="text-[10px] text-ink-light uppercase tracking-wide">
+                    distance
+                  </div>
                 </div>
               )}
-              {r.type === "metro" && "metroTiming" in r && (
+              {r.type === "metro" && (r as any).metroTiming && (
                 <div className="flex-1 bg-sun-soft rounded-xl py-2.5 text-center">
                   <div className="text-xs font-bold text-amber">
-                    {(r as { metroTiming: { lastTrain: string } }).metroTiming.lastTrain}
+                    {(r as any).metroTiming.lastTrain}
                   </div>
                   <div className="text-[10px] text-ink-light uppercase tracking-wide">
                     last train
@@ -277,26 +343,36 @@ function RoutesPage() {
               )}
             </div>
 
-            {/* Safety bars */}
             <Bar label="Street lighting" value={r.safety.lighting} />
             <Bar label="CCTV coverage" value={r.safety.cctv} />
             <Bar label="Police presence" value={r.safety.police} />
 
-            {/* Advisory message */}
             {r.advisory && (
               <div
                 className={`rounded-2xl p-3 mt-3 flex gap-2 ${
-                  r.score >= 82 ? "bg-sage/10" : r.score >= 65 ? "bg-sun-soft" : "bg-destructive/10"
+                  r.score >= 82
+                    ? "bg-sage/10"
+                    : r.score >= 65
+                      ? "bg-sun-soft"
+                      : "bg-destructive/10"
                 }`}
               >
                 <Info
                   className={`w-4 h-4 shrink-0 mt-0.5 ${
-                    r.score >= 82 ? "text-sage" : r.score >= 65 ? "text-amber" : "text-destructive"
+                    r.score >= 82
+                      ? "text-sage"
+                      : r.score >= 65
+                        ? "text-amber"
+                        : "text-destructive"
                   }`}
                 />
                 <p
                   className={`text-xs leading-relaxed ${
-                    r.score >= 82 ? "text-sage" : r.score >= 65 ? "text-amber" : "text-destructive"
+                    r.score >= 82
+                      ? "text-sage"
+                      : r.score >= 65
+                        ? "text-amber"
+                        : "text-destructive"
                   }`}
                 >
                   {r.advisory}
@@ -304,14 +380,16 @@ function RoutesPage() {
               </div>
             )}
 
-            {/* Route notes */}
             {r.safety.notes?.length > 0 && (
               <div className="bg-blush-soft/40 rounded-2xl p-3 mt-3">
                 <p className="text-[10px] font-semibold uppercase tracking-wider text-ink-light mb-1.5">
                   Route notes
                 </p>
                 {r.safety.notes.slice(0, 3).map((n, idx) => (
-                  <p key={idx} className="text-xs text-ink leading-relaxed flex gap-1.5">
+                  <p
+                    key={idx}
+                    className="text-xs text-ink leading-relaxed flex gap-1.5"
+                  >
                     <span className="text-blush">•</span>
                     {n}
                   </p>
@@ -319,12 +397,13 @@ function RoutesPage() {
               </div>
             )}
 
-            {/* Hotspots */}
             {r.hotspots && r.hotspots.length > 0 && (
               <div className="bg-destructive/10 rounded-2xl p-3 mt-2 flex gap-2">
                 <AlertTriangle className="w-4 h-4 text-destructive shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-[11px] font-semibold text-destructive">Avoid these spots</p>
+                  <p className="text-[11px] font-semibold text-destructive">
+                    Avoid these spots
+                  </p>
                   {r.hotspots.map((h, idx) => (
                     <p key={idx} className="text-xs text-destructive/90">
                       {h}
@@ -334,10 +413,10 @@ function RoutesPage() {
               </div>
             )}
 
-            {/* Safe zones */}
             {r.safezones && r.safezones.length > 0 && (
               <p className="text-xs text-sage mt-2 flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5" /> Safe stops: {r.safezones.join(" · ")}
+                <ShieldCheck className="w-3.5 h-3.5" /> Safe stops:{" "}
+                {r.safezones.join(" · ")}
               </p>
             )}
           </div>
@@ -345,7 +424,9 @@ function RoutesPage() {
 
         {ranked.length === 0 && (
           <div className="bg-destructive/10 border border-destructive/30 rounded-3xl p-8 text-center">
-            <p className="font-semibold text-destructive">No safe routes at this hour</p>
+            <p className="font-semibold text-destructive">
+              No safe routes at this hour
+            </p>
             <p className="text-sm text-destructive/80 mt-1">
               It's very late. Wait until morning or travel with company.
             </p>
@@ -353,7 +434,6 @@ function RoutesPage() {
         )}
       </div>
 
-      {/* Search another route */}
       <div className="mt-10">
         <p className="text-xs uppercase tracking-wider font-semibold text-ink-light mb-3 flex items-center gap-1.5">
           <MapPin className="w-3 h-3" /> Plan another route

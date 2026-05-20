@@ -264,7 +264,8 @@ export function aggregateSentiment(texts: string[]): {
 
   const results = texts.map(analyseReviewSentiment);
   const avgScore = results.reduce((a, r) => a + r.score, 0) / results.length;
-  const avgDelta = results.reduce((a, r) => a + r.safetyDelta, 0) / results.length;
+  const avgDelta =
+    results.reduce((a, r) => a + r.safetyDelta, 0) / results.length;
 
   const positiveCount = results.filter((r) => r.label === "positive").length;
   const negativeCount = results.filter((r) => r.label === "negative").length;
@@ -289,7 +290,10 @@ export function aggregateSentiment(texts: string[]): {
     .map(([k]) => k);
 
   // Adjusted safety boost — capped at ±5 points
-  const adjustedSafetyBoost = Math.max(-5, Math.min(5, Math.round(avgDelta * 10) / 10));
+  const adjustedSafetyBoost = Math.max(
+    -5,
+    Math.min(5, Math.round(avgDelta * 10) / 10),
+  );
 
   return {
     avgScore: Math.round(avgScore),
@@ -340,7 +344,8 @@ export function getRiskPattern(hour: number): RiskPattern {
       riskLevel: "medium",
       riskMultiplier: multiplier,
       label: "Evening — moderate risk",
-      recommendation: "Stay on well-lit routes. Metro is safest option before 11 PM.",
+      recommendation:
+        "Stay on well-lit routes. Metro is safest option before 11 PM.",
     };
   }
   return {

@@ -2,7 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import heroWoman from "@/assets/hero-woman.jpg";
 import heroMan from "@/assets/hero-man.jpg";
 import { RouteSearch } from "@/components/RouteSearch";
-import { Shield, MapPin, Users, Sparkles, MessageCircleHeart, AlertTriangle } from "lucide-react";
+import {
+  Shield,
+  MapPin,
+  Users,
+  Sparkles,
+  MessageCircleHeart,
+  AlertTriangle,
+} from "lucide-react";
 import { MapView } from "../components/MapView";
 
 // inside your return JSX, before the last </div>:
@@ -36,8 +43,8 @@ function HomePage() {
             </h1>
 
             <p className="mt-5 text-base sm:text-lg text-ink-light max-w-md leading-relaxed">
-              Nirbhay finds the safest route home, surfaces real reports from your community, and
-              keeps SOS one tap away.
+              Nirbhay finds the safest route home, surfaces real reports from
+              your community, and keeps SOS one tap away.
             </p>
 
             <div className="mt-7 flex flex-wrap items-center gap-3">
@@ -51,7 +58,8 @@ function HomePage() {
                 to="/reviews"
                 className="inline-flex items-center gap-2 bg-white/80 border border-border rounded-full px-6 py-3 text-sm font-semibold text-ink hover:bg-white transition-colors"
               >
-                <MessageCircleHeart className="w-4 h-4 text-blush" /> Read reviews
+                <MessageCircleHeart className="w-4 h-4 text-blush" /> Read
+                reviews
               </Link>
             </div>
 
@@ -67,7 +75,9 @@ function HomePage() {
                   key={s.l}
                   className="bg-white/60 backdrop-blur border border-border rounded-2xl p-3 text-center"
                 >
-                  <div className="font-display text-2xl font-black text-blush">{s.v}</div>
+                  <div className="font-display text-2xl font-black text-blush">
+                    {s.v}
+                  </div>
                   <div className="text-[11px] text-ink-light mt-0.5">{s.l}</div>
                 </div>
               ))}
@@ -128,11 +138,12 @@ function HomePage() {
               Plan your walk
             </span>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-ink mt-2 leading-tight">
-              Where are you headed <span className="italic text-blush">tonight?</span>
+              Where are you headed{" "}
+              <span className="italic text-blush">tonight?</span>
             </h2>
             <p className="mt-3 text-ink-light">
-              Choose your start, destination and time. We'll rank routes by lighting, CCTV, police
-              presence and community reports.
+              Choose your start, destination and time. We'll rank routes by
+              lighting, CCTV, police presence and community reports.
             </p>
           </div>
           <div className="lg:col-span-3 animate-fadeUp delay-1">
@@ -149,7 +160,8 @@ function HomePage() {
               Why Nirbhay
             </span>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-ink mt-2">
-              A companion that walks <span className="italic text-blush">with you</span>
+              A companion that walks{" "}
+              <span className="italic text-blush">with you</span>
             </h2>
           </div>
 
@@ -204,8 +216,12 @@ function HomePage() {
                     className={`w-5 h-5 ${f.tint === "blush" ? "text-blush" : "text-amber"}`}
                   />
                 </div>
-                <h3 className="font-display text-lg font-bold text-ink">{f.title}</h3>
-                <p className="text-sm text-ink-light mt-1.5 leading-relaxed">{f.desc}</p>
+                <h3 className="font-display text-lg font-bold text-ink">
+                  {f.title}
+                </h3>
+                <p className="text-sm text-ink-light mt-1.5 leading-relaxed">
+                  {f.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -219,11 +235,12 @@ function HomePage() {
             <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-blush opacity-20 blur-3xl" />
             <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-sun opacity-30 blur-3xl" />
             <h2 className="relative font-display text-3xl sm:text-5xl font-black text-ink leading-tight">
-              The street should feel like <span className="italic text-blush">yours.</span>
+              The street should feel like{" "}
+              <span className="italic text-blush">yours.</span>
             </h2>
             <p className="relative mt-4 text-ink-light max-w-xl mx-auto">
-              Start with one route. Tell us how it felt. Help the next woman walk a little more
-              fearless.
+              Start with one route. Tell us how it felt. Help the next woman
+              walk a little more fearless.
             </p>
             <div className="relative mt-7 flex flex-wrap justify-center gap-3">
               <Link
@@ -243,10 +260,12 @@ function HomePage() {
         </div>
       </section>
       <div className="max-w-6xl mx-auto px-4 sm:px-5 py-6 sm:py-10">
-        <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-ink">Route Map</h2>
+        <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-ink">
+          Route Map
+        </h2>
 
         {/* Clean, locked height container for the map */}
-        <div className="w-full h-[450px] rounded-2xl shadow-md overflow-hidden mb-6">
+        <div className="w-full h-112.5 rounded-2xl shadow-md overflow-hidden mb-6">
           <MapView />
         </div>
       </div>
